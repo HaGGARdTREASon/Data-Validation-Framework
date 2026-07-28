@@ -40,16 +40,21 @@ Gate Work Function: Fixed at 4.2 eV
 
 Nanocavity Dimensions: Nominal length = 150 nm, nominal height = 10 nm, nominal body thickness = 10 nm
 
+
 *Physical Transport Models*
+
 Silvaco ATLAS TCAD is configured with physics models to capture nanoscale tunneling dynamics:Non-local Band-to-Band Tunneling (BTBT): Accounts for line and point tunneling across the Ge–Si heterojunctionShockley-Read-Hall (SRH): Accounts for carrier recombinationMobility Models: Concentration-dependent (CONMOB) and field-dependent (FLDMOB) mobility modelsCarrier Statistics: Fermi-Dirac statistics for degenerate doping regions.
 
 *Biomolecule Filling Profiles*
+
 To overcome the assumption of ideal uniform cavity coverage, four realistic biomolecule filling profiles are modeled under a 90% cavity-filled condition:Concave Distribution: Biomolecule concentration is higher near cavity edges than in the middleConvex Distribution: Peak fill density located at the center of the cavityRamp-Up Distribution: Biomolecule density linearly increases from source to drainRamp-Down Distribution: Biomolecule density linearly decreases from source to drain.
 
 *Data Generation Pipeline*
+
 Monte Carlo statistical TCAD simulations vary cavity dimensions and silicon body thickness:Total Generated Samples: $\sim 50,000$ to $70,000$ simulation samplesVaried Parameters: Cavity length, cavity height/width, and silicon body thicknessExtracted Primary Outputs:ON-Current Sensitivity ($I_D$ Sensitivity)Threshold Voltage Sensitivity ($V_{th}$ Sensitivity)
 
 *Repository Structure*
+
 ├── tcad_scripts/
 │   ├── htfet_base_structure.in      # Silvaco ATLAS deck for nominal device setup
 │   ├── profile_concave.in           # Non-uniform dielectric mesh script
@@ -63,8 +68,11 @@ Monte Carlo statistical TCAD simulations vary cavity dimensions and silicon body
 │   ├── raw_tcad_outputs/            # Generated TCAD output logs
 │   └── compiled_dataset.csv         # Structured dataset containing ~50,000 Monte Carlo samples
 └── README.md
+
 *Quickstart Guide*
+
 *Prerequisites*
+
 Silvaco ATLAS TCAD (v5.20.0.R or higher)Python 3.8+ with pandas, numpy, and subprocess
 
 *Execution Steps*
