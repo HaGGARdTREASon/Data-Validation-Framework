@@ -15,12 +15,10 @@ The simulated device utilizes a Ge–Si heterojunction with a line-tunneling gat
                   |            High-k Dielectric (HfO2)             |
                   +------------------------+------------------------+
                   |       Nanocavity       |   Interfacial Oxide    |
-                  | (Biomolecules 90% Fill)|         (SiO2)         |
-
-                  
+                  | (Biomolecules 90% Fill)|         (SiO2)         |         
 +-----------------+------------------------+------------------------+-----------------+
-|     Source      |                        Channel                  |      Drain      |
-|     (p+ Ge)     |                        (p- Si)                  |     (n+ Si)     |
+|     Source      |                      Channel                    |      Drain      |
+|     (p+ Ge)     |                      (p- Si)                    |     (n+ Si)     |
 +-----------------+-------------------------------------------------+-----------------+
 
 
