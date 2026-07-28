@@ -8,6 +8,7 @@ This repository contains the Phase 1 codebase and TCAD simulation scripts for mo
 
 The simulated device utilizes a Ge–Si heterojunction with a line-tunneling gate-overlapped source region to maximize band-to-band tunneling (BTBT) probability and electrostatic control.      
 
+
                   +-------------------------------------------------+
                   |                   Gate Metal                    |
                   +-------------------------------------------------+
@@ -19,6 +20,7 @@ The simulated device utilizes a Ge–Si heterojunction with a line-tunneling gat
 |     Source      |                        Channel                  |      Drain      |
 |     (p+ Ge)     |                        (p- Si)                  |     (n+ Si)     |
 +-----------------+-------------------------------------------------+-----------------+
+
 
 *Key Geometrical & Doping Parameters*
 
