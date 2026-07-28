@@ -9,17 +9,7 @@ This repository contains the Phase 1 codebase and TCAD simulation scripts for mo
 The simulated device utilizes a Ge–Si heterojunction with a line-tunneling gate-overlapped source region to maximize band-to-band tunneling (BTBT) probability and electrostatic control.      
 
 
-                  +-------------------------------------------------+
-                  |                   Gate Metal                    |
-                  +-------------------------------------------------+
-                  |            High-k Dielectric (HfO2)             |
-                  +------------------------+------------------------+
-                  |       Nanocavity       |   Interfacial Oxide    |
-                  | (Biomolecules 90% Fill)|         (SiO2)         |                       
-+-----------------+------------------------+------------------------+-----------------+
-|     Source      |                      Channel                    |      Drain      |
-|     (p+ Ge)     |                      (p- Si)                    |     (n+ Si)     |
-+-----------------+-------------------------------------------------+-----------------+
+<img width="727" height="290" alt="image" src="https://github.com/user-attachments/assets/3b1823b5-ede0-4230-b9cd-82fe545e7706" />
 
 
 
@@ -42,6 +32,7 @@ Nanocavity Dimensions: Nominal length = 150 nm, nominal height = 10 nm, nominal 
 
 
 *Physical Transport Models*
+
 
 Silvaco ATLAS TCAD is configured with physics models to capture nanoscale tunneling dynamics:Non-local Band-to-Band Tunneling (BTBT): Accounts for line and point tunneling across the Ge–Si heterojunctionShockley-Read-Hall (SRH): Accounts for carrier recombinationMobility Models: Concentration-dependent (CONMOB) and field-dependent (FLDMOB) mobility modelsCarrier Statistics: Fermi-Dirac statistics for degenerate doping regions.
 
