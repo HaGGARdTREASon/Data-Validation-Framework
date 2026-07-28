@@ -25,6 +25,7 @@ The simulated device utilizes a Ge–Si heterojunction with a line-tunneling gat
 
 *Key Geometrical & Doping Parameters*
 
+
 Source Region: Heavily doped p-type Germanium ($1 \times 10^{20} \text{ cm}^{-3}$), length = 200 nm
 
 Channel Region: Lightly doped p-type Silicon ($1 \times 10^{15} \text{ cm}^{-3}$), length = 200 nm
