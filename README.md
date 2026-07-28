@@ -1,10 +1,14 @@
 **Phase 1: DM H-TFET Biosensor TCAD Modeling & Monte Carlo Simulation Framework**
 
 *Overview*
+
 This repository contains the Phase 1 codebase and TCAD simulation scripts for modeling a Gate-Overlapped Heterojunction Tunnel Field-Effect Transistor (DM H-TFET) dielectric-modulated biosensor. The primary objective of Phase 1 is to capture the nonlinear physical behavior of nanoscale biosensors under non-uniform biomolecule filling distributions and execute large-scale Monte Carlo statistical TCAD simulations to create a dataset for variability analysis.
 
 *Device Architecture & Specifications*
-The simulated device utilizes a Ge–Si heterojunction with a line-tunneling gate-overlapped source region to maximize band-to-band tunneling (BTBT) probability and electrostatic control.                                                                                                                              +-------------------------------------------------+
+
+The simulated device utilizes a Ge–Si heterojunction with a line-tunneling gate-overlapped source region to maximize band-to-band tunneling (BTBT) probability and electrostatic control.      
+
+                  +-------------------------------------------------+
                   |                   Gate Metal                    |
                   +-------------------------------------------------+
                   |            High-k Dielectric (HfO2)             |
