@@ -58,3 +58,119 @@ Silvaco ATLAS TCAD (v5.20.0.R or higher)Python 3.8+ with pandas, numpy, and subp
 *Execution Steps*
 Run Monte Carlo Batch Simulations:python monte_carlo_runner/batch_generator.py --samples 50000 --profile all
 Extract & Compile Sensitivities:python monte_carlo_runner/extract_sensitivity.py --input_dir data/raw_tcad_outputs/ --output data/compiled_dataset.csv
+
+
+**Phase 2: Machine Learning Predictive Framework for Biosensor Performance & Variability Analysis**
+
+
+*Overview*
+
+
+Phase 2 implements a data-driven predictive modeling framework using supervised machine learning regression to model the nonlinear dependencies of biosensor sensitivity on structural variations across multiple biomolecule filling profiles.
+
+By substituting exhaustive Technology Computer-Aided Design (TCAD) simulations with trained regression estimators, the framework reduces computational overhead by $\sim 99\%$ while maintaining prediction accuracy above $99.8\%$.
+
+*Machine Learning Architecture*
+
+The pipeline evaluates 8 individual regression tasks (4 biomolecule profiles $\times$ 2 target metrics):
+
+Input Features: Structural and cavity geometric parameters (e.g., Cavity Width, Cavity Length, Silicon Body Thickness).
+
+Target Outputs:
+
+$I_D$ Sensitivity (ON-current sensitivity)
+
+$V_{th}$ Sensitivity (Threshold voltage sensitivity)
+
+Evaluated Algorithms:
+
+Random Forest Regression (RFR) (Primary Architecture)
+
+Gradient Boosting Regression (GBR)
+
+Extreme Gradient Boosting Regression (XGBoost / XGBR)
+
+K-Nearest Neighbors Regression (KNN)
+
+Support Vector Regression (SVR)
+
+Preprocessing & Scaling Pipeline
+
+To avoid data leakage, data preprocessing follows a strict sequential pipeline:
+
+Data Cleaning: Null-value filtering across input feature and sensitivity target columns.
+
+Min-Max Normalization: Target sensitivity values are scaled to the range $[0, 1]$:
+
+
+$$\hat{y} = \frac{y - y_{\min}}{y_{\max} - y_{\min}}$$
+
+Dataset Partitioning: Evaluated across multi-ratio split configurations ($50:50$ up to $90:10$) with $80:20$ serving as the standard working benchmark.
+
+Inverse Transformation: Predicted outputs are scaled back to original physical units for domain-specific accuracy computation:
+
+
+$$y = \hat{y} \cdot (y_{\max} - y_{\min}) + y_{\min}$$
+
+<img width="800" height="385" alt="image" src="https://github.com/user-attachments/assets/31500d96-429b-4f4b-9170-827a2e8873fe" />
+
+
+
+*Formal Evaluation Metrics*
+
+
+Model performance is evaluated using standard regression metrics on normalized targets:
+
+Mean Squared Error (MSE): 
+
+$$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
+
+Root Mean Squared Error (RMSE): 
+
+$$\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}$$
+
+Mean Absolute Error (MAE): 
+
+$$\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} \vert{}y_i - \hat{y}_i\vert{}$$
+
+Coefficient of Determination ($R^2$): 
+
+$$R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}$$
+
+Physical Accuracy Metric: 
+
+$$\text{Accuracy (\%)} = \left( 1 - \frac{1}{n} \sum_{i=1}^{n} \frac{\vert{}y_i - \hat{y}_i\vert{}}{y_i} \right) \times 100$$
+
+
+*Repository Structure*
+
+<img width="735" height="277" alt="image" src="https://github.com/user-attachments/assets/4d490673-290b-41e3-9a13-1e463e44a6a3" />
+
+
+
+**Setup & Quickstart**
+
+**Prerequisites & Dependencies**
+
+*Ensure Python 3.8+ is installed along with the required machine learning packages:*
+
+scikit-learn>=1.0.0
+xgboost>=1.5.0
+pandas>=1.3.0
+numpy>=1.20.0
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+
+**Installation & Execution**
+
+*Install dependencies:*
+pip install -r requirements.txt
+
+
+*Train and evaluate the models across target profiles:*
+python src/models.py --data_path ../data/compiled_dataset.csv --split 0.8 --model rfr
+
+
+*Generate tolerance-based spatial scatter plots:*
+python src/visualization.py --profile convex --target Id_sensitivity --tolerance 0.08
