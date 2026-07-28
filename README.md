@@ -46,19 +46,8 @@ Monte Carlo statistical TCAD simulations vary cavity dimensions and silicon body
 
 *Repository Structure*
 
-├── tcad_scripts/
-│   ├── htfet_base_structure.in      # Silvaco ATLAS deck for nominal device setup
-│   ├── profile_concave.in           # Non-uniform dielectric mesh script
-│   ├── profile_convex.in            # Convex density modulation script
-│   ├── profile_rampup.in            # Ramp-up profile script
-│   └── profile_rampdown.in          # Ramp-down profile script
-├── monte_carlo_runner/
-│   ├── batch_generator.py           # Python script to parameterize TCAD input decks
-│   └── extract_sensitivity.py       # Extract ID and Vth sensitivities from log files
-├── data/
-│   ├── raw_tcad_outputs/            # Generated TCAD output logs
-│   └── compiled_dataset.csv         # Structured dataset containing ~50,000 Monte Carlo samples
-└── README.md
+<img width="806" height="325" alt="image" src="https://github.com/user-attachments/assets/f024b331-2897-47f6-826b-b4e3949312bf" />
+
 
 *Quickstart Guide*
 
